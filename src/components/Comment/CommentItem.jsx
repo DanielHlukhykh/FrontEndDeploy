@@ -26,7 +26,7 @@ function CommentItem({ comment, onEdit, onDelete }) {
     `${author.firstName || ''} ${author.lastName || ''}`.trim() ||
     author.username ||
     'User';
-  const authorAvatar = author.avatarUrl || author.avatar || 'https://i.pravatar.cc/28';
+  const authorAvatar = author.avatarUrl || author.avatar || '/default-avatar.png';
 
   const isOwner = user && (user._id === authorId || user.id === authorId);
 
@@ -39,7 +39,7 @@ function CommentItem({ comment, onEdit, onDelete }) {
 
   return (
     <div className="comment-item">
-      <img src={authorAvatar} alt="" className="comment-item__avatar" />
+  <img src={authorAvatar} alt="" className="comment-item__avatar" />
       <div className="comment-item__body">
         <div className="comment-item__top">
           <span className="comment-item__author">{authorName}</span>

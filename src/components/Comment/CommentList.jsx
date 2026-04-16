@@ -117,7 +117,7 @@ function CommentList({ postId }) {
       {user && (
         <form className="comment-section__form" onSubmit={handleAdd}>
           <img
-            src={user.avatarUrl || user.avatar || 'https://i.pravatar.cc/28'}
+            src={user.avatarUrl || user.avatar || '/default-avatar.png'}
             alt=""
             className="comment-section__avatar"
           />

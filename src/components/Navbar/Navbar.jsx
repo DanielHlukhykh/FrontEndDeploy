@@ -41,7 +41,7 @@ function Navbar() {
                 👤 Account
               </NavLink>
               <div className="navbar__user">
-                <img src={user.avatarUrl || user.avatar || 'https://i.pravatar.cc/32'} alt="" className="navbar__avatar" />
+                <img src={user.avatarUrl || user.avatar || '/default-avatar.png'} alt="" className="navbar__avatar" />
                 <span className="navbar__username">{user.login || user.firstName || user.username || 'User'}</span>
                 <button className="navbar__logout" onClick={handleLogout}>
                   Logout

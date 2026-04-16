@@ -34,7 +34,7 @@ function Post({ post, onLike, onDelete, onEdit }) {
     : 'User';
 
   const authorAvatar = typeof author === 'object'
-    ? (author.avatarUrl || author.avatar || 'https://i.pravatar.cc/40')
+  ? (author.avatarUrl || author.avatar || '/default-avatar.png')
     : 'https://i.pravatar.cc/40';
 
   const isOwner = user && user._id === authorId;

@@ -89,7 +89,7 @@ function PostForm({ onSubmit, awardId = null, placeholder = "What's your fitness
   return (
     <form className="post-form" onSubmit={handleSubmit}>
       <div className="post-form__top">
-        <img src={user.avatarUrl || user.avatar || 'https://i.pravatar.cc/40'} alt="" className="post-form__avatar" />
+  <img src={user.avatarUrl || user.avatar || '/default-avatar.png'} alt="" className="post-form__avatar" />
         <textarea
           className="post-form__input"
           placeholder={placeholder}
