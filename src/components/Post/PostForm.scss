@@ -1,0 +1,187 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.post-form {
+  @include card;
+  @include flex(flex-start, stretch, column, 14px);
+
+  &__top {
+    @include flex(flex-start, flex-start, row, 12px);
+  }
+
+  &__avatar {
+    @include avatar(40px);
+  }
+
+  &__input {
+    @include input;
+    flex: 1;
+    resize: vertical;
+    min-height: 70px;
+    line-height: 1.5;
+  }
+
+  // Image section
+  &__image-section {
+    @include flex(flex-start, stretch, column, 10px);
+  }
+
+  &__image-tabs {
+    @include flex(flex-start, center, row, 6px);
+  }
+
+  &__image-tab {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border: 1px solid $border-color;
+    border-radius: $radius-sm;
+    background: transparent;
+    color: $text-secondary;
+    cursor: pointer;
+    transition: all $transition;
+
+    &:hover {
+      border-color: $text-secondary;
+      color: $text-primary;
+    }
+
+    &--active {
+      background: $primary;
+      color: $text-white;
+      border-color: $primary;
+
+      &:hover {
+        background: $primary-hover;
+      }
+    }
+  }
+
+  &__url-input {
+    @include input;
+  }
+
+  // File upload
+  &__file-upload {
+    position: relative;
+  }
+
+  &__file-input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__file-label {
+    @include flex(center, center);
+    padding: 14px;
+    border: 2px dashed $border-color;
+    border-radius: $radius-md;
+    color: $text-secondary;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all $transition;
+    text-align: center;
+
+    &:hover {
+      border-color: $primary;
+      color: $primary-light;
+      background: rgba($primary, 0.04);
+    }
+  }
+
+  // Preview
+  &__preview {
+    position: relative;
+    border-radius: $radius-md;
+    overflow: hidden;
+    max-height: 220px;
+  }
+
+  &__preview-img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: $radius-md;
+    display: block;
+  }
+
+  &__preview-remove {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    border-radius: $radius-full;
+    background: rgba(0, 0, 0, 0.65);
+    color: $text-white;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    @include flex(center, center);
+    transition: background $transition;
+
+    &:hover {
+      background: $danger;
+    }
+  }
+
+  &__bottom {
+    @include flex(space-between, center);
+  }
+
+  &__bottom-left {
+    @include flex(flex-start, center, row, 8px);
+  }
+
+  &__media-btn {
+    @include btn-outline;
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+
+  // Award select
+  &__award-select {
+    position: relative;
+  }
+
+  &__award-dropdown {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border: 1px solid $border-color;
+    border-radius: $radius-sm;
+    background: $bg-input;
+    color: $text-secondary;
+    cursor: pointer;
+    transition: all $transition;
+    appearance: none;
+    padding-right: 28px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238B949E'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+
+    &:hover {
+      border-color: $text-secondary;
+      color: $text-primary;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      color: $text-primary;
+    }
+
+    option {
+      background: $bg-card;
+      color: $text-primary;
+    }
+  }
+
+  &__submit {
+    @include btn;
+    padding: 8px 24px;
+  }
+}

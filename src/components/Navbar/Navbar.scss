@@ -1,0 +1,136 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.navbar {
+  background: $bg-card;
+  border-bottom: 1px solid $border-color;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  &__inner {
+    @include flex(space-between, center);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 60px;
+  }
+
+  &__logo {
+    @include flex(flex-start, center, row, 10px);
+    font-weight: 800;
+    font-size: 20px;
+    color: $primary;
+
+    &-icon {
+      font-size: 24px;
+    }
+  }
+
+  &__burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 4px;
+
+    span {
+      width: 22px;
+      height: 2px;
+      background: $text-primary;
+      border-radius: 2px;
+      transition: all $transition;
+    }
+
+    @include mobile {
+      display: flex;
+    }
+  }
+
+  &__menu {
+    @include flex(flex-start, center, row, 8px);
+
+    @include mobile {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      background: $bg-card;
+      border-bottom: 1px solid $border-color;
+      padding: 16px;
+
+      &--open {
+        display: flex;
+      }
+    }
+  }
+
+  &__link {
+    padding: 8px 14px;
+    border-radius: $radius-md;
+    color: $text-secondary;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all $transition;
+
+    &:hover,
+    &.active {
+      color: $text-white;
+      background: $bg-input;
+    }
+  }
+
+  &__user {
+    @include flex(flex-start, center, row, 10px);
+    margin-left: 12px;
+    padding-left: 12px;
+    border-left: 1px solid $border-color;
+
+    @include mobile {
+      margin-left: 0;
+      padding-left: 0;
+      border-left: none;
+      padding-top: 12px;
+      border-top: 1px solid $border-color;
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  &__avatar {
+    @include avatar(30px);
+    border: 2px solid $primary;
+  }
+
+  &__username {
+    font-size: 13px;
+    font-weight: 600;
+    color: $text-primary;
+  }
+
+  &__logout {
+    @include btn-outline($danger);
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  &__auth {
+    @include flex(flex-start, center, row, 8px);
+    margin-left: 12px;
+  }
+
+  &__login-btn {
+    @include btn-outline($text-secondary);
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+
+  &__signup-btn {
+    @include btn;
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}

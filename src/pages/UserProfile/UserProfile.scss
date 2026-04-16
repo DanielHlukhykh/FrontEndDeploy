@@ -1,0 +1,156 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.user-profile {
+  @include flex(flex-start, stretch, column, 20px);
+  max-width: 780px;
+  margin: 0 auto;
+
+  &__loading {
+    text-align: center;
+    padding: 60px;
+    color: $text-muted;
+    font-size: 16px;
+  }
+
+  // Header / Profile card
+  &__header {
+    @include card;
+    @include flex(flex-start, flex-start, row, 20px);
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__avatar {
+    @include avatar(90px);
+    border: 3px solid $primary;
+    flex-shrink: 0;
+  }
+
+  &__info {
+    flex: 1;
+    @include flex(flex-start, flex-start, column, 8px);
+
+    @include mobile {
+      align-items: center;
+    }
+  }
+
+  &__name {
+    font-size: 22px;
+    font-weight: 800;
+    color: $text-primary;
+  }
+
+  &__bio {
+    font-size: 14px;
+    color: $text-secondary;
+  }
+
+  &__stats {
+    @include flex(flex-start, center, row, 24px);
+    margin-top: 4px;
+  }
+
+  &__stat {
+    @include flex(center, center, column, 1px);
+    text-align: center;
+
+    strong {
+      font-size: 18px;
+      font-weight: 800;
+      color: $text-primary;
+    }
+
+    span {
+      font-size: 11px;
+      color: $text-muted;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  // Follow button
+  &__follow-btn {
+    @include btn;
+    font-size: 14px;
+    padding: 10px 24px;
+    flex-shrink: 0;
+    align-self: flex-start;
+    min-width: 110px;
+
+    @include mobile {
+      align-self: center;
+    }
+
+    &--following {
+      background: transparent;
+      border: 1px solid $border-color;
+      color: $text-secondary;
+
+      &:hover {
+        border-color: $danger;
+        color: $danger;
+        background: rgba($danger, 0.08);
+      }
+    }
+  }
+
+  &__settings-btn {
+    @include btn-outline($text-secondary);
+    font-size: 13px;
+    flex-shrink: 0;
+    align-self: flex-start;
+
+    @include mobile {
+      align-self: center;
+    }
+  }
+
+  // Tabs
+  &__tabs {
+    @include flex(flex-start, center, row, 0);
+    border-bottom: 1px solid $border-color;
+  }
+
+  &__tab {
+    background: none;
+    border: none;
+    padding: 12px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: $text-secondary;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all $transition;
+
+    &:hover {
+      color: $text-primary;
+    }
+
+    &--active {
+      color: $primary;
+      border-bottom-color: $primary;
+    }
+  }
+
+  // Content
+  &__content {
+    @include flex(flex-start, stretch, column, 16px);
+  }
+
+  &__posts {
+    @include flex(flex-start, stretch, column, 16px);
+  }
+
+  &__empty {
+    text-align: center;
+    color: $text-muted;
+    padding: 40px;
+    font-size: 15px;
+  }
+}

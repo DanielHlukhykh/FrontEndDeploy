@@ -1,0 +1,126 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.comment-section {
+  @include flex(flex-start, stretch, column, 12px);
+  padding-top: 10px;
+  border-top: 1px solid $border-color;
+
+  &__list {
+    @include flex(flex-start, stretch, column, 8px);
+  }
+
+  &__empty {
+    font-size: 13px;
+    color: $text-muted;
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  &__form {
+    @include flex(flex-start, center, row, 10px);
+  }
+
+  &__avatar {
+    @include avatar(28px);
+  }
+
+  &__input {
+    @include input;
+    flex: 1;
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  &__send {
+    @include btn;
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+}
+
+.comment-item {
+  @include flex(flex-start, flex-start, row, 10px);
+  padding: 8px 10px;
+  border-radius: $radius-md;
+  background: rgba($bg-input, 0.5);
+
+  &__avatar {
+    @include avatar(28px);
+  }
+
+  &__body {
+    @include flex(flex-start, flex-start, column, 3px);
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__top {
+    @include flex(flex-start, center, row, 8px);
+  }
+
+  &__author {
+    font-size: 12px;
+    font-weight: 600;
+    color: $text-primary;
+  }
+
+  &__date {
+    font-size: 11px;
+    color: $text-muted;
+  }
+
+  &__text {
+    font-size: 13px;
+    color: $text-secondary;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+
+  &__edit {
+    @include flex(flex-start, center, row, 6px);
+    width: 100%;
+  }
+
+  &__edit-input {
+    @include input;
+    flex: 1;
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  &__edit-btns {
+    @include flex(flex-start, center, row, 4px);
+
+    button {
+      background: none;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: $radius-sm;
+
+      &:hover {
+        background: $bg-input;
+      }
+    }
+  }
+
+  &__actions {
+    @include flex(flex-start, center, row, 10px);
+    margin-top: 2px;
+
+    button {
+      background: none;
+      border: none;
+      color: $text-muted;
+      font-size: 11px;
+      cursor: pointer;
+      transition: color $transition;
+
+      &:hover {
+        color: $primary-light;
+      }
+    }
+  }
+}

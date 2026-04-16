@@ -1,0 +1,188 @@
+@use 'sass:color';
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.settings {
+  @include flex(flex-start, stretch, column, 20px);
+  max-width: 600px;
+  margin: 0 auto;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 800;
+    color: $text-primary;
+  }
+
+  &__msg {
+    padding: 10px 14px;
+    border-radius: $radius-md;
+    font-size: 13px;
+    font-weight: 500;
+
+    &--success {
+      background: rgba($success, 0.1);
+      border: 1px solid rgba($success, 0.25);
+      color: $success;
+    }
+
+    &--error {
+      background: rgba($danger, 0.1);
+      border: 1px solid rgba($danger, 0.25);
+      color: $danger;
+    }
+  }
+
+  &__section {
+    @include card;
+    @include flex(flex-start, stretch, column, 16px);
+
+    h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: $text-primary;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $border-color;
+    }
+  }
+
+  &__avatar-row {
+    @include flex(flex-start, center, row, 16px);
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__avatar-preview {
+    @include avatar(70px);
+    border: 2px solid $border-color;
+    flex-shrink: 0;
+  }
+
+  &__avatar-controls {
+    @include flex(flex-start, stretch, column, 10px);
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__avatar-tabs {
+    display: flex;
+    gap: 6px;
+  }
+
+  &__avatar-tab {
+    padding: 5px 14px;
+    border: 1px solid $border-color;
+    border-radius: $radius-md;
+    background: transparent;
+    color: $text-secondary;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      border-color: $primary;
+      color: $primary;
+    }
+
+    &--active {
+      background: $primary;
+      border-color: $primary;
+      color: #fff;
+
+      &:hover {
+        background: color.adjust($primary, $lightness: -8%);
+        color: #fff;
+      }
+    }
+  }
+
+  &__file-upload {
+    position: relative;
+  }
+
+  &__file-input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+
+  &__file-label {
+    @include input;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 500;
+    color: $text-secondary;
+    transition: all 0.2s;
+
+    &:hover {
+      border-color: $primary;
+      color: $primary;
+      background: rgba($primary, 0.04);
+    }
+  }
+
+  &__avatar-remove {
+    background: none;
+    border: none;
+    color: $danger;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    align-self: flex-start;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__field {
+    @include flex(flex-start, stretch, column, 6px);
+
+    &--grow {
+      flex: 1;
+    }
+
+    label {
+      font-size: 12px;
+      font-weight: 600;
+      color: $text-secondary;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    input, textarea {
+      @include input;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+  }
+
+  &__save {
+    @include btn;
+    align-self: flex-end;
+    padding: 10px 24px;
+  }
+}

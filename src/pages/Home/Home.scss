@@ -1,0 +1,123 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.home {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 24px;
+  align-items: start;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+
+  &__sidebar {
+    @include flex(flex-start, stretch, column, 16px);
+    position: sticky;
+    top: 84px;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__welcome {
+    @include card;
+
+    h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: $primary;
+      margin-bottom: 6px;
+    }
+
+    p {
+      font-size: 13px;
+      color: $text-secondary;
+      line-height: 1.5;
+    }
+  }
+
+  &__stats-card {
+    @include card;
+    @include flex(space-around, center);
+  }
+
+  &__stat {
+    @include flex(center, center, column, 2px);
+    text-align: center;
+  }
+
+  &__stat-num {
+    font-size: 22px;
+    font-weight: 800;
+    color: $text-primary;
+  }
+
+  &__stat-label {
+    font-size: 12px;
+    color: $text-muted;
+  }
+
+  &__feed {
+    @include flex(flex-start, stretch, column, 16px);
+    max-width: 620px;
+
+    @include tablet {
+      max-width: 100%;
+    }
+  }
+
+  &__filters {
+    @include flex(flex-start, center, row, 8px);
+  }
+
+  &__filter-btn {
+    @include btn-outline($text-secondary);
+    font-size: 13px;
+    padding: 7px 14px;
+
+    &--active {
+      background: $primary;
+      color: $text-white;
+      border-color: $primary;
+
+      &:hover {
+        background: $primary-hover;
+      }
+    }
+  }
+
+  &__posts {
+    @include flex(flex-start, stretch, column, 16px);
+  }
+
+  &__empty {
+    @include card;
+    text-align: center;
+    padding: 40px;
+    color: $text-muted;
+    font-size: 16px;
+  }
+
+  &__load-more {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+  }
+
+  &__load-more-btn {
+    @include btn;
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 24px;
+    font-size: 15px;
+    border-radius: $radius-md;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+}
